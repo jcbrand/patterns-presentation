@@ -30,7 +30,7 @@
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
+a, abbr, acronym, address, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
 b, u, i, center,
@@ -239,32 +239,14 @@ a:focus {
     transform:         translateZ(50px);
 }
 
-#title .footnote {
-    font-size: 32px;
+.question {
+    font-size: 200%;
 }
 
-/*
-    Second step is nothing special, just a text with a link, so it doesn't need
-    any special styling.
-
-    Let's move to 'big thoughts' with centered text and custom font sizes.
-*/
-#big {
-    width: 600px;
-    text-align: center;
-    font-size: 60px;
-    line-height: 1;
-}
-
-#big b {
+.footnote {
+    margin-top: 7em;
+    font-size: 40%t;
     display: block;
-    font-size: 250px;
-    line-height: 250px;
-}
-
-#big .thoughts {
-    font-size: 90px;
-    line-height: 150px;
 }
 
 /*
@@ -661,15 +643,19 @@ a:focus {
 #intro {
   text-align: center;
 }
-#intro h2 {
+header h1 {
   text-align: center;
   margin-left: auto;
   margin-right: auto;
-  width: 5em;
-  border-bottom: 0.1em solid;
+  width: 10em;
+  font-size: 180%;
+}
+header p {
+  text-align: center;
+  font-size: 50%;
 }
 #intro img {
-    width: 100%;
+    width: 120%;
 }
 @media only screen and (max-width: 767px) {
     #intro {
