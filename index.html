@@ -86,7 +86,6 @@
         Demo code syntax highlighting
 -->
 
-
 <!--
     Body element is used by impress.js to set some useful class names, that will allow you to detect
     the support and state of the presentation in CSS or other scripts.
@@ -152,34 +151,42 @@
     <div class="step" data-x="-2500" data-y="-4300">
         <ul class="list">
             <li>Building to think</li>
+        </ul>
+    </div>
+    <div class="step" data-x="-2500" data-y="-4200">
+        <ul class="list">
             <li>Learning faster by failing</li>
+        </ul>
+    </div>
+    <div class="step" data-x="-2500" data-y="-4100">
+        <ul class="list">
             <li>Permission to explore new behaviors</li>
         </ul>
     </div>
 
-    <div class="step" data-x="-2500" data-y="-3700">
+    <div class="step" data-x="-2500" data-y="-3500">
         <h2>The value of <em class="underline">first</em> making a rich, interactive <strong>prototype</strong>.</h2>
     </div>
 
-    <ul class="list step" data-x="-2500" data-y="-3200">
+    <ul class="list step" data-x="-2500" data-y="-3000">
         <li>Communicates the designer's vision to client and rest of team.</li>
     </ul>
-    <ul class="list step" data-x="-2500" data-y="-3000">
+    <ul class="list step" data-x="-2500" data-y="-2800">
         <li>Initial user-testing and feedback can be gathered.</li>
     </ul>
-    <ul class="list step" data-x="-2500" data-y="-2800">
+    <ul class="list step" data-x="-2500" data-y="-2600">
         <li>Client knows from the start what they'll be getting, UI and UX-wise.</li>
     </ul>
-    <ul class="list step" data-x="-2500" data-y="-2600">
+    <ul class="list step" data-x="-2500" data-y="-2400">
         <li>Assumptions can be tested before they're implemented.</li>
     </ul>
-    <ul class="list step" data-x="-2500" data-y="-2400">
+    <ul class="list step" data-x="-2500" data-y="-2200">
         <li>Design problems are solved during the planning stage.</li>
     </ul>
-    <ul class="list step" data-x="-2500" data-y="-2200">
+    <ul class="list step" data-x="-2500" data-y="-2000">
         <li>Developers see the context within which their work will be exposed to the end-user.</li>
     </ul>
-    <ul class="list step" data-x="-2500" data-y="-2000">
+    <ul class="list step" data-x="-2500" data-y="-1800">
         <li>Demonstrations make it easier to sell a website, concept or idea.</li>
     </ul>
 
@@ -290,76 +297,178 @@
         <p class="smaller">There is a <a href="https://www.npmjs.com/package/generator-patternslib" target="_blank">pattern generator</a>
         created with <a href="http://yeoman.io/" target="_blank">Yeoman</a>, which you can use to generate new patterns.
 
-        <pre class="pat-syntax-highlight">yo patternslib pat-example</pre>
+        <pre class="pat-syntax-highlight smaller">yo patternslib pat-example</pre>
     </div>
 
     <div class="step" data-x="-3500" data-y="-400" data-scale="1">
         <h2>Advantages of using Patterns</h2>
     </div>
     <ul class="list step" data-x="-3500" data-y="-200">
-        <li>If done right, allows graceful degradation</li>
+        <li>Highly reusable.</li>
+        <li class="smaller"><em>Individual patterns can be reused again and again.</em></li>
     </ul>
     <ul class="list step" data-x="-3500" data-y="0">
-        <li>Small and easy to grok. <!-- TODO: (Compare size of patterns core with other frameworks) --></li>
+        <li>Composable</li>
+        <li class="smaller"><em>Impressive features can be derived by combining patterns in novel ways.</em></li>
     </ul>
     <ul class="list step" data-x="-3500" data-y="200">
-        <li>Pay for what you eat.</li>
+        <li>Customizable</li>
+        <li class="smaller"><em>Only use those patterns which you actually need.</em></li>
     </ul>
+    <ul class="list step" data-x="-3500" data-y="500">
+        <li>Allows for graceful degradation.</li>
+        <li class="smaller"><em>For example, <strong>href</strong> attribute determines injection source.</em></li>
+        <li class="small">
+            <pre class="pat-syntax-highlight">
+&lt;!-- yuck --&gt;
+&lt;a href="#"&gt;Click me!&lt;/a&gt;
 
-    <div class="step" data-x="3500" data-y="1000" data-scale="1">
-        <h2>Comparison with other JS frameworks or concepts</h2>
-    </div>
-
-    <ul class="list step" data-x="3500" data-y="1400">
-        <li>Main difference between Patterns and other frameworks is the <em class="colored">Ausgangspunkt</em>.</li>
-        <!-- There must be more in this list. -->
+&lt;!-- nice --&gt;
+&lt;a class="pat-inject" href="/path/to/source.html"&gt;Click me!&lt;/a&gt;
+            </pre>
+        </li>
     </ul>
-
-    <div class="step" data-x="3500" data-y="2000" data-scale="1">
-        <dl class="small">
-            <dt>Backbone</dt>
-            <dd>You can use Backbone in Patterns.</dd>
-            <dt>Angular.js</dt>
-            <dd>Has ng- "directives", but is very developer-sentric and not accessible to designers at all.</dd>
-            <dt>React.js</dt>
-            <dd>Don't have direct experience, but could be used. ?</dd>
-            <dt>Webcomponents:</dt>
-            <dd>
-                Definition:
-                    "A standardised non-obtrusive way to write encapsulated functionality in the form of a component.
-                    Each component can hold its own HTML markup, styles and JavaScript code without the risk of breaking things around it."
-                    Source: http://www.revillweb.com/articles/why-web-components-are-important/
-
-                Very similar to one usecase of Patterns, which is to embed enhanced
-                widgets into the DOM.
-
-                Has some advantages:
-                    - W3C standard (http://www.w3.org/standards/techs/components)
-                    - Shadow DOM
-                        The markup for such a widget is encapsulated in its own
-                        DOM, with its own CSS rules, which doesn't affect the
-                        "normal" DOM around it.
-
-                However, no IE or Safari support (although polyfills exist).
-                https://github.com/WebComponents/webcomponentsjs
-
-                No reason why you can't use both Webcomponents and Patterns in a
-                single project. We could also perhaps add support for Webcomponents
-                or individual features such as Shadow DOM to Patterns. Needs some
-                more investigation.
-            </dd>
-        </dl>
-    </div>
+    <ul class="list step" data-x="-3500" data-y="800">
+        <li>Core codebase is small and easy to understand.</li>
+        <li class="smaller"><em>Scanner, parser and registry code is altogether 620 loc.</em></li>
+    </ul>
 
     <div class="step" data-x="-5000" data-y="-1000">
         <h2>When not to use Patterns</h2>
     </div>
 
-    <div class="step" data-x="-5000" data-y="0">
-        <p class="small">
-            Single-page-apps
+    <ul class="list step" data-x="-5000" data-y="-800">
+        <li>Single-page apps.</li>
+        <li class="smaller"><em>Example in Plone is for example the theme editor.</em></li>
+        <!-- TODO find examples in Plone -->
+    </ul>
+
+    <ul class="list step" data-x="-5000" data-y="-600">
+        <li>Individual patterns as submodules not exposed to the designer.</li>
+        <li class="smaller"><em>Clunky and misses the point.</em></li>
+        <!-- TODO find examples in Plone -->
+    </ul>
+
+    <div class="step" data-x="3500" data-y="800" data-scale="1">
+        <h2>Comparison with other JS frameworks or concepts</h2>
+    </div>
+
+    <div class="list step" data-x="3500" data-y="1400">
+        <p>Fundamental difference is that the intended user of <em class="colored">Patterns</em> is the prototype designer.</p>
+        <p>They shouldn't have to worry about Javascript.</p>
+    </div>
+
+    <div class="step" data-x="3500" data-y="2100" data-scale="1">
+        <h3>Backbone.js</h3>
+        <p class="smaller">
+            The Base class from which patterns are usually derived <em>(but don't have to be)</em>, is very similar to the <strong>Backbone.Model</strong> class.
         </p>
-        <!-- TODO: finish lists and find examples from Mockup -->
+        <br/>
+        <p class="smaller">
+            Would also be possible to use Backbone Models and Views inside a pattern, but usually not necessary.
+        </p>
+        <br/>
+        <p class="small">
+            Example of pattern which uses Backbone: <a href="https://github.com/jcbrand/patterns.converse" target="_blank">pat-converse</a>
+        </p>
+    </div>
+
+    <div class="step" data-x="3500" data-y="3000" data-scale="1">
+        <h3>Angular.js</h3>
+        <p class="smaller">
+            Angular has directives.
+        <p>
+        <p class="small">
+            To a certain degree similar to patterns. Declarative markup which defines widgets and behaviors that should appear in the page.
+        </p>
+        <br/>
+        <p class="smaller">
+            Can't use them as a designer.
+        <p>
+        <p class="small">
+            It's not possible to create a functional prototype simply by using and composing Angular directives in your markup without ever having to write any Javascript code.
+        </p>
+        <br/>
+        <p class="smaller">
+            To do that, you would need to write something like Patterns, in Angular.
+        </p>
+    </div>
+
+    <div class="step" data-x="3500" data-y="3800" data-scale="1">
+        <h3>React.js</h3>
+        <p class="smaller">
+            Should be possible to use React views or things like the Virtual DOM and JSX in Patterns.
+        <p>
+        <br/>
+        <p class="smaller">
+            React and Patterns should be able to live side-by-side in a site.
+        <p>
+    </div>
+
+    <div class="step" data-x="3500" data-y="4600">
+        <h3>Webcomponents</h3>
+        <p class="small">
+            <strong><a href="http://www.revillweb.com/articles/why-web-components-are-important/" target="_blank">Definition:</a></strong>
+            <blockquote class="small">
+                "A standardised non-obtrusive way to write encapsulated functionality in the form of a component.
+                Each component can hold its own HTML markup, styles and JavaScript code without the risk of breaking things around it."
+            </blockquote>
+        </p>
+    </div>
+    <div class="step" data-x="3500" data-y="4850">
+        <p class="smaller">
+            Similar idea to Patterns.
+        </p>
+        <p class="small">
+            Declaratively define widgets and enhanced functionality in your HTML.
+        </p>
+    </div>
+    <div class="step" data-x="3500" data-y="5000">
+        <p class="smaller">
+            A Patternslib of webcomponents
+        </p>
+        <p class="small">
+            Choose the <del>patterns</del> components you want and then download an instantly usable bundle.
+        </p>
+    </div>
+    <div class="step" data-x="3500" data-y="5150">
+        <p class="smaller">
+            Advantages:
+        </p>
+        <ul class="list small">
+            <li><a href="http://www.w3.org/standards/techs/components" target="_blank">W3C standard</a></li>
+            <li>Encapsulation in a "Shadow DOM"</li>
+            <li class="smaller">
+                <em>
+                The markup for such a widget is encapsulated in its own
+                DOM, with its own CSS rules, which doesn't affect the
+                "normal" DOM around it.
+                </em>
+            </li>
+        </ul>
+    </div>
+    <div class="step" data-x="3500" data-y="5340">
+        <p class="smaller">
+            Not ready for prime time.
+        </p>
+        <p class="small">
+            However, no IE or Safari support (although <a href="https://github.com/WebComponents/webcomponentsjs" target="_blank">polyfills</a> exist).
+        </p>
+        <p class="small">
+            No reason why you can't use both Webcomponents and Patterns in a single project.
+        </p>
+    </div>
+
+    <div class="step" data-x="-2000" data-y="1540">
+        <h2>Resources</h2>
+        <ul class="list">
+            <li>
+                Patternslib website: <a href="http://patternslib.com">patternslib.com</a>
+            </li>
+            <li>
+               <a href="https://github.com/Patternslib/Patterns/blob/master/docs/developer/create-a-pattern.md">How to create a pattern</a>
+            </li>
+        </ul>
     </div>
 
     <div id="its-in-3d" class="step" data-x="500" data-y="3500" data-z="-100" data-rotate-x="-40" data-rotate-y="10" data-scale="2">
@@ -417,6 +526,7 @@
         document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
     }
 </script>
+<script src="js/patterns.js"></script>
 <script src="js/impress.js"></script>
 <script>impress().init();</script>
 </body>

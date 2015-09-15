@@ -58,6 +58,9 @@ blockquote {
     margin: 5rem 0 0 -2.5rem;
     border-left: 1px solid #888;
 }
+blockquote.small {
+    margin: 1rem 0 1rem -2.5rem;
+}
 cite {
     color: #854d27;
     font-size: 60%;
@@ -112,17 +115,17 @@ h2 {
 b, strong { font-weight: bold }
 i, em { font-style: italic }
 
-/*
-    ... and give links a nice look.
-*/
 a {
     color: #dd7230;
     text-decoration: none;
 }
-
 a:hover,
 a:focus {
     text-decoration: underline;
+}
+
+p {
+    margin: 0.5em 0;
 }
 
 /*
@@ -154,12 +157,6 @@ a:focus {
     display: none;
 }
 
-/*
-    Now let's style the presentation steps.
-
-    We start with basics to make sure it displays correctly in everywhere ...
-*/
-
 .step {
     position: relative;
     width: 900px;
@@ -175,11 +172,6 @@ a:focus {
     line-height: 1.5;
 }
 
-/*
-    ... and we enhance the styles for impress.js.
-
-    Basically we remove the margin and make inactive steps a little bit transparent.
-*/
 .impress-enabled .step {
     margin: 0;
     opacity: 0.3;
@@ -238,6 +230,14 @@ div.list-group {
 .list li {
     list-style: disc inside;
     font-size: 80%;
+}
+.list li.smaller {
+    list-style: none;
+    font-size: 60%;
+}
+.list li.small {
+    list-style: none;
+    font-size: 40%;
 }
 
 .colored {
