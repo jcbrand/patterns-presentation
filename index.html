@@ -58,7 +58,7 @@
             Don't have direct experience, but could be used. ???
 
         Webcomponents:
-            Definition: 
+            Definition:
                 "A standardised non-obtrusive way to write encapsulated functionality in the form of a component.
                 Each component can hold its own HTML markup, styles and JavaScript code without the risk of breaking things around it."
                 Source: http://www.revillweb.com/articles/why-web-components-are-important/
@@ -81,7 +81,6 @@
             or individual features such as Shadow DOM to Patterns. Needs some
             more investigation.
 
-
     Ideas:
         Demo loading of Markdown
         Demo code syntax highlighting
@@ -91,16 +90,16 @@
 <!--
     Body element is used by impress.js to set some useful class names, that will allow you to detect
     the support and state of the presentation in CSS or other scripts.
-    
+
     First very useful class name is `impress-not-supported`. This class means, that browser doesn't
     support features required by impress.js, so you should apply some fallback styles in your CSS.
     It's not necessary to add it manually on this element. If the script detects that browser is not
     good enough it will add this class, but keeping it in HTML means that users without JavaScript
     will also get fallback styles.
-    
+
     When impress.js script detects that browser supports all required features, this class name will
     be removed.
-    
+
     The class name on body element also depends on currently active presentation step. More details about
     it can be found later, when `hint` element is being described.
 -->
@@ -114,15 +113,15 @@
 
 <!--
     Now that's the core element used by impress.js.
-    
+
     That's the wrapper for your presentation steps. In this element all the impress.js magic happens.
     It doesn't have to be a `<div>`. Only `id` is important here as that's how the script find it.
-    
+
     You probably won't need it now, but there are some configuration options that can be set on this element.
-    
+
     To change the duration of the transition between slides use `data-transition-duration="2000"` giving it
     a number of ms. It defaults to 1000 (1s).
-    
+
     You can also control the perspective with `data-perspective="500"` giving it a number of pixels.
     It defaults to 1000. You can set it to 0 if you don't want any 3D effects.
     If you are willing to change this value make sure you understand how CSS perspective works:
@@ -145,11 +144,11 @@
         <blockquote>“Design isn’t just how it looks, design is how it works.”</blockquote>
         <cite>Steve Jobs</cite>
     </div>
-    
+
     <div class="step" data-x="-2200" data-y="-4500">
         <q>Why do designers like to work with prototypes?</q>
     </div>
-    
+
     <div class="step" data-x="-2200" data-y="-4300">
         <ul class="list">
             <li>Building to think</li>
@@ -187,13 +186,13 @@
     <!--
         The `id` attribute of the step element is used to identify it in the URL, but it's optional.
         If it is not defined, it will get a default value of `step-N` where N is a number of slide.
-        
+
         So in the example below it'll be `step-2`.
-        
+
         The hash part of the url when this step is active will be `#/step-2`.
-        
+
         You can also use `#step-2` in a link, to point directly to this particular step.
-        
+
         Please note, that while `#/step-2` (with slash) would also work in a link it's not recommended.
         Using classic `id`-based links like `#step-2` makes these links usable also in fallback mode.
     -->
@@ -212,15 +211,15 @@
         <p class="smaller">More complex behavior can be achieved by combining different patterns.</p>
     </div>
 
-    <div class="step" data-x="-100" data-y="-3500" data-rotate="90">
-        <p>From a developer's perspective, <em class="colored">Patterns</em>
-        lets you <em>write</em>, <em>encapsulate</em> and then <em>expose</em>
+    <div class="step" data-x="-100" data-y="-3500" data-rotate="270">
+        <h3>From a developer's perspective</h3>
+        <em class="colored">Patterns</em> lets you <em>write</em>, <em>encapsulate</em> and then <em>expose</em>
         front-end Javascript features to <strong>designers</strong> in a way that comes naturally to them.</p>
     </div>
 
     <div class="step" data-x="-1200" data-y="-3500" data-rotate="90">
         <div class="list-group">
-            <p>Stuff like:</p>
+            <p class="colored">So, patterns can be used for:</p>
             <ul class="list">
                 <li>Toggling or switching CSS classes</li>
                 <li>Tabs</li>
@@ -233,40 +232,40 @@
         </div>
     </div>
 
-        
-    <div class="step" data-x="3000" data-y="-3500" data-rotate="180">
+    <div class="step" data-x="3000" data-y="-3800" data-rotate="180">
         <p>Let's demo some patterns.</p>
+        <p class="small">Create normal HTML markup, but add special classes and data-* attributes to exposes new non-standard features.</p>
         <!-- TODO: add a markup example here -->
     </div>
 
-    <div class="step" data-x="2000" data-y="-2000">
+    <div class="step" data-x="2000" data-y="-2300">
         <q class="longer-question">So, as a JS developer, how do I create new patterns?</p>
     </div>
-            
-    <div class="step" data-x="2000" data-y="-1500">
-        Let's look at some code.
+
+    <div class="step" data-x="2000" data-y="-1700">
+        <p>Let's look at some code.</p>
+        <br/>
+        <div class="smaller">
+        <p>Javascript tools you'll need to know and use</p>
+        <ul class="list">
+            <li>Require.js</li>
+            <li>Bower</li>
+        </ul>
+        </div>
         <!-- TODO: Add example pattern code here -->
     </div>
 
-    <div class="step" data-x="3500" data-y="2100" data-rotate="180" data-scale="2">
-        <strong>Designer:</strong>
-        <p>Create normal HTML markup, but add special classes and data-* attributes to exposes new non-standard features.</p>
-        <p>Like?</p>
-        <strong>Developer:</strong>
-        <p>Create JS modules which configure a DOM parser to check for a certain class name and (optionally) data-* attributes.
+    <div id="tiny" class="step" data-x="5000" data-y="2325" data-scale="1">
+        <!--
+            And now it gets really exciting! We move into third dimension!
+
+            Along with `data-x` and `data-y`, you can define the position on third (Z) axis, with
+            `data-z`. In the example below we use `data-z="-3000"` meaning that element should be
+            positioned far away from us (by 3000px).
+        -->
+        <p class="smaller">Create JS modules which configure a DOM parser to check for a certain class name and (optionally) data-* attributes.
            Such a module will automatically be called when parser finds the markup in the DOM.
         </p>
-    </div>
-
-    <!--
-        And now it gets really exciting! We move into third dimension!
-        
-        Along with `data-x` and `data-y`, you can define the position on third (Z) axis, with
-        `data-z`. In the example below we use `data-z="-3000"` meaning that element should be
-        positioned far away from us (by 3000px).
-    -->
-    <div id="tiny" class="step" data-x="2825" data-y="2325" data-z="-3000" data-rotate="300" data-scale="1">
-        <p>and <b>tiny</b> ideas</p>
     </div>
 
     <!--
@@ -274,57 +273,103 @@
         should notice in the demo that some words of this text are being animated.
         It's a very basic CSS transition that is applied to the elements when this step element is
         reached.
-        
+
         At the very beginning of the presentation all step elements are given the class of `future`.
         It means that they haven't been visited yet.
-        
+
         When the presentation moves to given step `future` is changed to `present` class name.
         That's how animation on this step works - text moves when the step has `present` class.
-        
+
         Finally when the step is left the `present` class is removed from the element and `past`
         class is added.
-        
+
         So basically every step element has one of three classes: `future`, `present` and `past`.
         Only one current step has the `present` class.
     -->
-    <div id="ing" class="step" data-x="3500" data-y="-850" data-rotate="270" data-scale="6">
-        <p>by <b class="positioning">positioning</b>, <b class="rotating">rotating</b> and <b class="scaling">scaling</b> them on an infinite canvas</p>
+    <div class="step" data-x="4000" data-y="-1850" data-rotate="270" data-scale="1">
+        <p class="smaller">There is a <a href="https://www.npmjs.com/package/generator-patternslib" target="_blank">pattern generator</a>
+        created with <a href="http://yeoman.io/" target="_blank">Yeoman</a>, which you can use to generate new patterns.
+
+        <pre class="pat-syntax-highlight">yo patternslib pat-example</pre>
     </div>
 
-    <div id="imagination" class="step" data-x="6700" data-y="-300" data-scale="6">
-        <p>the only <b>limit</b> is your <b class="imagination">imagination</b></p>
+    <div id="imagination" class="step" data-x="-6000" data-y="-600" data-scale="1">
+        <h2>Advantages of using Patterns</h2>
+    </div>
+    <ul class="list step" data-x="-6000" data-y="-400">
+        <li>If done right, allows graceful degradation</li>
+    </ul>
+    <ul class="list step" data-x="-6000" data-y="-300">
+        <li>Small and easy to grok. <!-- TODO: (Compare size of patterns core with other frameworks) --></li>
+    </ul>
+    <ul class="list step" data-x="-6000" data-y="-200">
+        <li>Pay for what you eat.</li>
+    </ul>
+
+    <div class="step" data-x="2700" data-y="1000" data-scale="1">
+        <h2>Comparison with other JS frameworks or concepts</h2>
     </div>
 
-    <div id="source" class="step" data-x="6300" data-y="2000" data-rotate="20" data-scale="4">
-        <p>want to know more?</p>
-        <q><a href="http://github.com/bartaz/impress.js">use the source</a>, Luke!</q>
+    <ul class="list step" data-x="2700" data-y="1400">
+        <li>Main difference between Patterns and other frameworks is the <em class="colored">Ausgangspunkt</em>.</li>
+        <!-- There must be more in this list. -->
+    </ul>
+
+    <div id="source" class="step" data-x="2700" data-y="2000" data-scale="1">
+        <dl class="small">
+            <dt>Backbone</dt>
+            <dd>You can use Backbone in Patterns.</dd>
+            <dt>Angular.js</dt>
+            <dd>Has ng- "directives", but is very developer-sentric and not accessible to designers at all.</dd>
+            <dt>React.js</dt>
+            <dd>Don't have direct experience, but could be used. ?</dd>
+            <dt>Webcomponents:</dt>
+            <dd>
+                Definition:
+                    "A standardised non-obtrusive way to write encapsulated functionality in the form of a component.
+                    Each component can hold its own HTML markup, styles and JavaScript code without the risk of breaking things around it."
+                    Source: http://www.revillweb.com/articles/why-web-components-are-important/
+
+                Very similar to one usecase of Patterns, which is to embed enhanced
+                widgets into the DOM.
+
+                Has some advantages:
+                    - W3C standard (http://www.w3.org/standards/techs/components)
+                    - Shadow DOM
+                        The markup for such a widget is encapsulated in its own
+                        DOM, with its own CSS rules, which doesn't affect the
+                        "normal" DOM around it.
+
+                However, no IE or Safari support (although polyfills exist).
+                https://github.com/WebComponents/webcomponentsjs
+
+                No reason why you can't use both Webcomponents and Patterns in a
+                single project. We could also perhaps add support for Webcomponents
+                or individual features such as Shadow DOM to Patterns. Needs some
+                more investigation.
+            </dd>
+        </dl>
     </div>
 
-    <div id="one-more-thing" class="step" data-x="6000" data-y="4000" data-scale="2">
-        <p>one more thing...</p>
-    </div>
+    <div id="its-in-3d" class="step" data-x="500" data-y="3500" data-z="-100" data-rotate-x="-40" data-rotate-y="10" data-scale="2">
+        <!--
+            You can not only position element in 3D, but also rotate it around any axis.
+            So this one here will get rotated by -40 degrees (40 degrees anticlockwise) around X axis and
+            10 degrees (clockwise) around Y axis.
 
-    <!--
-        And the last one shows full power and flexibility of impress.js.
-        
-        You can not only position element in 3D, but also rotate it around any axis.
-        So this one here will get rotated by -40 degrees (40 degrees anticlockwise) around X axis and
-        10 degrees (clockwise) around Y axis.
-        
-        You can of course rotate it around Z axis with `data-rotate-z` - it has exactly the same effect
-        as `data-rotate` (these two are basically aliases).
-    -->
-    <div id="its-in-3d" class="step" data-x="6200" data-y="4300" data-z="-100" data-rotate-x="-40" data-rotate-y="10" data-scale="2">
+            You can of course rotate it around Z axis with `data-rotate-z` - it has exactly the same effect
+            as `data-rotate` (these two are basically aliases).
+        -->
         <h2>References</h2>
         <ul class="list">
             <li>
                 <a href="http://www.ideo.com/images/uploads/news/pdfs/Prototypes_as_Design_Tools_1.pdf" target="_blank">
-                    Prototypes as (Design) Tools for Behavioral and Organizational Change
+                    Prototypes as (Design) Tools for Behavioral and Organizational Change.
                 </a>
             </li>
             <li>
                 <a href="https://boagworld.com/design/a-prototype-is-worth-a-thousand-words/" target="_blank">
-                    A prototype is worth a thousand words
+                    A prototype is worth a thousand words.
                 </a>
             </li>
         </ul>
@@ -332,14 +377,14 @@
 
     <!--
         So to summarize of all the possible attributes used to position presentation steps, we have:
-        
+
         * `data-x`, `data-y`, `data-z` - they define the position of **the center** of step element on
             the canvas in pixels; their default value is 0;
         * `data-rotate-x`, `data-rotate-y`, 'data-rotate-z`, `data-rotate` - they define the rotation of
             the element around given axis in degrees; their default value is 0; `data-rotate` and `data-rotate-z`
             are exactly the same;
         * `data-scale` - defines the scale of step element; default value is 1
-        
+
         These values are used by impress.js in CSS transformation functions, so for more information consult
         CSS transfrom docs: https://developer.mozilla.org/en/CSS/transform
     -->
@@ -347,75 +392,15 @@
     </div>
 
 </div>
-
-<!--
-    Hint is not related to impress.js in any way.
-    
-    But it can show you how to use impress.js features in creative way.
-    
-    When the presentation step is shown (selected) its element gets the class of "active" and the body element
-    gets the class based on active step id `impress-on-ID` (where ID is the step's id)... It may not be
-    so clear because of all these "ids" in previous sentence, so for example when the first step (the one with
-    the id of `bored`) is active, body element gets a class of `impress-on-bored`.
-    
-    This class is used by this hint below. Check CSS file to see how it's shown with delayed CSS animation when
-    the first step of presentation is visible for a couple of seconds.
-    
-    ...
-    
-    And when it comes to this piece of JavaScript below ... kids, don't do this at home ;)
-    It's just a quick and dirty workaround to get different hint text for touch devices.
-    In a real world it should be at least placed in separate JS file ... and the touch content should be
-    probably just hidden somewhere in HTML - not hard-coded in the script.
-    
-    Just sayin' ;)
--->
 <div class="hint">
     <p>Use a spacebar or arrow keys to navigate</p>
 </div>
 <script>
-if ("ontouchstart" in document.documentElement) { 
-    document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
-}
+    if ("ontouchstart" in document.documentElement) {
+        document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
+    }
 </script>
-
-<!--
-    Last, but not least.
-    
-    To make all described above really work, you need to include impress.js in the page.
-    I strongly encourage to minify it first.
-    
-    In here I just include full source of the script to make it more readable.
-    
-    You also need to call a `impress().init()` function to initialize impress.js presentation.
-    And you should do it in the end of your document. Not only because it's a good practice, but also
-    because it should be done when the whole document is ready.
-    Of course you can wrap it in any kind of "DOM ready" event, but I was too lazy to do so ;)
--->
 <script src="js/impress.js"></script>
 <script>impress().init();</script>
-
-<!--
-    The `impress()` function also gives you access to the API that controls the presentation.
-    
-    Just store the result of the call:
-    
-        var api = impress();
-    
-    and you will get three functions you can call:
-    
-        `api.init()` - initializes the presentation,
-        `api.next()` - moves to next step of the presentation,
-        `api.prev()` - moves to previous step of the presentation,
-        `api.goto( idx | id | element, [duration] )` - moves the presentation to the step given by its index number
-                id or the DOM element; second parameter can be used to define duration of the transition in ms,
-                but it's optional - if not provided default transition duration for the presentation will be used.
-    
-    You can also simply call `impress()` again to get the API, so `impress().next()` is also allowed.
-    Don't worry, it wont initialize the presentation again.
-    
-    For some example uses of this API check the last part of the source of impress.js where the API
-    is used in event handlers.
--->
 </body>
 </html>
