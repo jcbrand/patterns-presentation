@@ -105,9 +105,8 @@
     it can be found later, when `hint` element is being described.
 -->
 <body class="impress-not-supported">
-<!--
-    For example this fallback message is only visible when there is `impress-not-supported` class on body.
--->
+
+<!-- This fallback message is only visible when there is `impress-not-supported` class on body. -->
 <div class="fallback-message">
     <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
     <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
@@ -128,26 +127,62 @@
     It defaults to 1000. You can set it to 0 if you don't want any 3D effects.
     If you are willing to change this value make sure you understand how CSS perspective works:
     https://developer.mozilla.org/en/CSS/perspective
-    
-    But as I said, you won't need it for now, so don't worry - there are some simple but interesting things
-    right around the corner of this tag ;)
 -->
 <div id="impress">
 
-    <!--
-        Each step of the presentation should be an element inside the `#impress` with a class name
-        of `step`. These step elements are positioned, rotated and scaled by impress.js, and
-        the 'camera' shows them on each step of the presentation.
+    <!-- TODO: add ids to all steps -->
 
-        Positioning information is passed through data attributes.
-    -->
-    <div id="intro" class="step" data-x="0" data-y="0" data-scale="2">
+    <div id="intro" class="step" data-x="0" data-y="0" data-scale="3">
         <header>
-        <h1>Patterns</h1>
-        <p>Design-driven web development through rich, interactive prototypes.</p>
+            <h1>Patterns</h1>
+            <p class="byline">Design-driven web development through rich, interactive prototypes.</p>
         </header>
+        <p class="small center">A presentation by <a href="https://opkode.com">JC Brand</a></p>
         <img src="/style/blackboard.svg" />
     </div>
+
+    <div class="step" data-x="-2200" data-y="-5100">
+        <blockquote>“Design isn’t just how it looks, design is how it works.”</blockquote>
+        <cite>Steve Jobs</cite>
+    </div>
+    
+    <div class="step" data-x="-2200" data-y="-4500">
+        <q>Why do designers like to work with prototypes?</q>
+    </div>
+    
+    <div class="step" data-x="-2200" data-y="-4300">
+        <ul class="list">
+            <li>Building to think</li>
+            <li>Learning faster by failing</li>
+            <li>Permission to explore new behaviors</li>
+        </ul>
+    </div>
+
+    <div class="step" data-x="-2200" data-y="-3700">
+        <h2>The value of <em class="underline">first</em> making a rich, interactive <strong>prototype</strong>.</h2>
+    </div>
+
+    <ul class="list step" data-x="-2200" data-y="-3200">
+        <li>Communicates the designer's vision to client and rest of team.</li>
+    </ul>
+    <ul class="list step" data-x="-2200" data-y="-3000">
+        <li>Initial user-testing and feedback can be gathered.</li>
+    </ul>
+    <ul class="list step" data-x="-2200" data-y="-2800">
+        <li>Client knows from the start what they'll be getting, UI and UX-wise.</li>
+    </ul>
+    <ul class="list step" data-x="-2200" data-y="-2600">
+        <li>Assumptions can be tested before they're implemented.</li>
+    </ul>
+    <ul class="list step" data-x="-2200" data-y="-2400">
+        <li>Design problems are solved during the planning stage.</li>
+    </ul>
+    <ul class="list step" data-x="-2200" data-y="-2200">
+        <li>Developers see the context within which their work will be exposed to the end-user.</li>
+    </ul>
+    <ul class="list step" data-x="-2200" data-y="-2000">
+        <li>Demonstrations make it easier to sell a website, concept or idea.</li>
+    </ul>
 
     <!--
         The `id` attribute of the step element is used to identify it in the URL, but it's optional.
@@ -162,50 +197,61 @@
         Please note, that while `#/step-2` (with slash) would also work in a link it's not recommended.
         Using classic `id`-based links like `#step-2` makes these links usable also in fallback mode.
     -->
-    <div class="step" data-x="-1000" data-y="-1500">
-        <q class="question">What is<sup>*</sup> <strong>Patterns</strong>?</q>
+    <div class="step" data-x="-1000" data-y="-5000">
+        <q class="question">So, what is<sup>*</sup> <strong>Patterns</strong>?</q>
         <span class="footnote"><sup>*</sup> not a grammar mistake, talking about the toolkit here.</span>
     </div>
-    <div class="step" data-x="-1000" data-y="-1000">
-        <p>Well, depends on who you are...</p>
+    <div class="step" data-x="1600" data-y="-3500" data-rotate="90">
+        <p><em class="colored">Patterns</em> is a toolkit which allows designers to create rich, interactive prototypes in HTML/CSS without having to learn or write any Javascript</p>
     </div>
 
-    <div class="step" data-x="0" data-y="-1500" data-rotate="90">
-        <q class="question">Designer?</q>
+    <div class="step" data-x="700" data-y="-3500" data-rotate="90">
+        <h3>From a designer's perspective</h3>
+        <p>Pick and choose individual patterns, to add functionality and interactivity to your prototype.</p>
+        <br/>
+        <p class="smaller">More complex behavior can be achieved by combining different patterns.</p>
     </div>
 
-    <div class="step" data-x="0" data-y="-1000" data-rotate="90">
-        <p>Patterns is a way to add extra features and  interactivity to your prototypes without having to learn or write any Javascript.</p>
+    <div class="step" data-x="-100" data-y="-3500" data-rotate="90">
+        <p>From a developer's perspective, <em class="colored">Patterns</em>
+        lets you <em>write</em>, <em>encapsulate</em> and then <em>expose</em>
+        front-end Javascript features to <strong>designers</strong> in a way that comes naturally to them.</p>
+    </div>
+
+    <div class="step" data-x="-1200" data-y="-3500" data-rotate="90">
+        <div class="list-group">
+            <p>Stuff like:</p>
+            <ul class="list">
+                <li>Toggling or switching CSS classes</li>
+                <li>Tabs</li>
+                <li>Ajax page loading</li>
+                <li>Rich text editing</li>
+                <li>Live cloning of page elements</li>
+                <li>Form validation</li>
+                <li>... Pretty much anything that can be done in JS</li>
+            </ul>
+        </div>
+    </div>
+
+        
+    <div class="step" data-x="3000" data-y="-3500" data-rotate="180">
+        <p>Let's demo some patterns.</p>
         <!-- TODO: add a markup example here -->
     </div>
 
-    <div class="step" data-x="1000" data-y="-1500">
-        <q class="question">Developer?</q>
+    <div class="step" data-x="2000" data-y="-2000">
+        <q class="longer-question">So, as a JS developer, how do I create new patterns?</p>
     </div>
-
-    <div class="step" data-x="1000" data-y="-1000">
-        <p><strong>Patterns</strong> lets you <em>write</em>, <em>encapsulate</em> and then <em>expose</em> front-end Javascript features to
-        <strong>designers</strong> in a way that comes naturally to them.</p>
+            
+    <div class="step" data-x="2000" data-y="-1500">
+        Let's look at some code.
         <!-- TODO: Add example pattern code here -->
     </div>
 
-    <div class="step" data-x="850" data-y="3000" data-rotate="90" data-scale="1">
-        <q class="question">How do Patterns work?</p>
-        <p>Again... depends on who you are.</p>
-    </div>
-
-    <div class="step" data-x="3500" data-y="2100" data-rotate="180" data-scale="6">
+    <div class="step" data-x="3500" data-y="2100" data-rotate="180" data-scale="2">
         <strong>Designer:</strong>
         <p>Create normal HTML markup, but add special classes and data-* attributes to exposes new non-standard features.</p>
         <p>Like?</p>
-        <ul>
-            <li>Tabs</li>
-            <li>Rich text editing</li>
-            <li>Ajax page loading</li>
-            <li>Ajax page loading</li>
-            <li>Form validation</li>
-            <li>... Pretty much anything that can be done in JS</li>
-        </ul>
         <strong>Developer:</strong>
         <p>Create JS modules which configure a DOM parser to check for a certain class name and (optionally) data-* attributes.
            Such a module will automatically be called when parser finds the markup in the DOM.
@@ -269,8 +315,19 @@
         as `data-rotate` (these two are basically aliases).
     -->
     <div id="its-in-3d" class="step" data-x="6200" data-y="4300" data-z="-100" data-rotate-x="-40" data-rotate-y="10" data-scale="2">
-        <p><span class="have">have</span> <span class="you">you</span> <span class="noticed">noticed</span> <span class="its">it's</span> <span class="in">in</span> <b>3D<sup>*</sup></b>?</p>
-        <span class="footnote">* beat that, prezi ;)</span>
+        <h2>References</h2>
+        <ul class="list">
+            <li>
+                <a href="http://www.ideo.com/images/uploads/news/pdfs/Prototypes_as_Design_Tools_1.pdf" target="_blank">
+                    Prototypes as (Design) Tools for Behavioral and Organizational Change
+                </a>
+            </li>
+            <li>
+                <a href="https://boagworld.com/design/a-prototype-is-worth-a-thousand-words/" target="_blank">
+                    A prototype is worth a thousand words
+                </a>
+            </li>
+        </ul>
     </div>
 
     <!--
