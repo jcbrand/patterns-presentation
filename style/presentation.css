@@ -265,20 +265,6 @@ div.list-group {
     font-weight: bold;
 }
 
-#tiny {
-    width: 500px;
-    text-align: center;
-}
-
-
-/* The 'imagination' step is again some boring font-sizing. */
-#imagination {
-    width: 600px;
-}
-#imagination .imagination {
-    font-size: 78px;
-}
-
 /*
     And the "it's in 3D" step again brings some 3D typography - just for fun.
 
