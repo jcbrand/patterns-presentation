@@ -117,6 +117,7 @@ body {
     Now let's bring some text styles back ...
 */
 h1, h2 {
+    margin: 0.5em 0;
     color: #f4c95d;
     text-align: center;
 }
