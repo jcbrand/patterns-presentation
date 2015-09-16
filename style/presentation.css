@@ -128,8 +128,8 @@ p {
     margin: 0.5em 0;
 }
 
-button {
-    padding: 0.5em;
+button.pat-button {
+    background-color: lightgray;
     font-size: 20px;
 }
 

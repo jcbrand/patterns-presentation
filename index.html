@@ -232,11 +232,11 @@
         <h4>Toggling CSS classes</h4>
         <br/>
         <p><span class="red smaller" id="toToggle">This is getting toggled</span></p>
-        <button id="colour" class="pat-toggle" data-pat-toggle="selector: #toToggle; value: red blue; store: session">Toggle color</button>
+        <button id="colour" class="pat-toggle pat-button" data-pat-toggle="selector: #toToggle; value: red blue; store: session">Toggle color</button>
 
         <pre class="pat-syntax-highlight small">
 &lt;p&gt;&lt;span class="red" id="toToggle"&gt;This is getting toggled&lt;/span&gt;&lt;/p&gt;
-&lt;button id="colour" class="pat-toggle" data-pat-toggle="selector: #toToggle; value: red blue; store: session"&gt;Toggle color&lt;/button&gt;
+&lt;button id="colour" class="pat-toggle pat-button" data-pat-toggle="selector: #toToggle; value: red blue; store: session"&gt;Toggle color&lt;/button&gt;
         </pre>
     </div>
 
@@ -248,8 +248,8 @@
             <li class="mode-Red">Stays red</li>
         </ul>
         <fieldset class="btn-group">
-            <button class="pat-switch" data-pat-switch="selector: ul.test1 li; remove: mode-Blue ; add: mode-Green; store: session" title="Make all green">Turn Green</button>
-            <button class="pat-switch" data-pat-switch="selector: ul.test1 li; remove: mode-Green ; add: mode-Blue; store: session" title="Make all blue">Turn Blue</button>
+            <button class="pat-switch pat-button" data-pat-switch="selector: ul.test1 li; remove: mode-Blue ; add: mode-Green; store: session" title="Make all green">Turn Green</button>
+            <button class="pat-switch pat-button" data-pat-switch="selector: ul.test1 li; remove: mode-Green ; add: mode-Blue; store: session" title="Make all blue">Turn Blue</button>
         </fieldset>
 
         <pre class="pat-syntax-highlight small">
@@ -259,8 +259,8 @@
     &lt;li class="mode-Red"&gt;Stays red&lt;/li&gt;
 &lt;/ul&gt;
 &lt;br/&gt;
-&lt;button class="pat-switch" data-pat-switch="selector: ul.test1 li; remove: mode-Blue ; add: mode-Green" title="Make all green"&gt;Turn Green&lt;/button&gt;
-&lt;button class="pat-switch" data-pat-switch="selector: ul.test1 li; remove: mode-Green ; add: mode-Blue" title="Make all blue"&gt;Turn Blue&lt;/button&gt;
+&lt;button class="pat-switc pat-buttonh" data-pat-switch="selector: ul.test1 li; remove: mode-Blue ; add: mode-Green" title="Make all green"&gt;Turn Green&lt;/button&gt;
+&lt;button class="pat-switc pat-buttonh" data-pat-switch="selector: ul.test1 li; remove: mode-Green ; add: mode-Blue" title="Make all blue"&gt;Turn Blue&lt;/button&gt;
         </pre>
     </div>
 
