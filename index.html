@@ -236,7 +236,10 @@
 
         <pre class="pat-syntax-highlight small">
 &lt;p&gt;&lt;span class="red" id="toToggle"&gt;This is getting toggled&lt;/span&gt;&lt;/p&gt;
-&lt;button id="colour" class="pat-toggle pat-button" data-pat-toggle="selector: #toToggle; value: red blue; store: session"&gt;Toggle color&lt;/button&gt;
+&lt;button id="colour" class="pat-toggle pat-button"
+           data-pat-toggle="selector: #toToggle; value: red blue; store: session"&gt;
+    Toggle color
+&lt;/button&gt;
         </pre>
     </div>
 
@@ -259,28 +262,158 @@
     &lt;li class="mode-Red"&gt;Stays red&lt;/li&gt;
 &lt;/ul&gt;
 &lt;br/&gt;
-&lt;button class="pat-switc pat-buttonh" data-pat-switch="selector: ul.test1 li; remove: mode-Blue ; add: mode-Green" title="Make all green"&gt;Turn Green&lt;/button&gt;
-&lt;button class="pat-switc pat-buttonh" data-pat-switch="selector: ul.test1 li; remove: mode-Green ; add: mode-Blue" title="Make all blue"&gt;Turn Blue&lt;/button&gt;
+&lt;button class="pat-switc pat-buttonh"
+           data-pat-switch="selector: ul.test1 li; remove: mode-Blue ; add: mode-Green"
+           title="Make all green"&gt;Turn Green&lt;/button&gt;
+&lt;button class="pat-switc pat-buttonh"
+           data-pat-switch="selector: ul.test1 li; remove: mode-Green ; add: mode-Blue"
+           title="Make all blue"&gt;Turn Blue&lt;/button&gt;
         </pre>
     </div>
 
-    <div class="step" data-x="-3800" data-y="3500" data-rotate="90">
-        <div class="list-group">
-            <ul class="list">
-                <li>Tabs</li>
-                <li>Ajax page loading</li>
-                <li>Rich text editing</li>
-                <li>Live cloning of page elements</li>
-                <li>Form validation</li>
-                <li>...pretty much anything that can be done in JS</li>
-            </ul>
+    <div class="step" data-x="-4000" data-y="3500" data-rotate="90">
+        <h4>Tabs</h4>
+        <div class="smaller">
+            <nav class="tabs smaller">
+                <a href="#sheet-1" class="current">Tab one</a>
+                <a href="#sheet-2">Tab two</a>
+                <a href="#sheet-3">Tab three</a>
+            </nav>
+            <article class="pat-stacks">
+            <section id="sheet-1">
+                <h5>Sheet one</h5>
+                <p class="smaller">
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+                </p>
+            </section>
+            <section id="sheet-2">
+                <h5>Sheet two</h5>
+                <p class="smaller">
+                Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. 
+                </p>
+            </section>
+            <section id="sheet-3">
+                <h5>Sheet three</h5>
+                <p class="smaller">
+                    Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. 
+                </p>
+            </section>
+            </article>
         </div>
+
+        <pre class="pat-syntax-highlight small">
+&lt;nav class="tabs smaller"&gt;
+    &lt;a href="#sheet-1" class="current"&gt;Tab one&lt;/a&gt;
+    &lt;a href="#sheet-2"&gt;Tab two&lt;/a&gt;
+    &lt;a href="#sheet-3"&gt;Tab three&lt;/a&gt;
+&lt;/nav&gt;
+&lt;article class="pat-stacks"&gt;
+&lt;section id="sheet-1"&gt;
+    &lt;h5&gt;Sheet one&lt;/h5&gt;
+    &lt;p class="smaller"&gt;
+    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+    &lt;/p&gt;
+&lt;/section&gt;
+
+&lt;!-- Removed one &lt;section&gt; here to save space --&gt;
+
+&lt;section id="sheet-3"&gt;
+    &lt;h5&gt;Sheet three&lt;/h5&gt;
+    &lt;p class="smaller"&gt;
+        Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. 
+    &lt;/p&gt;
+&lt;/section&gt;
+&lt;/article&gt;
+        </pre>
     </div>
 
-    <div class="step" data-x="3000" data-y="-3800" data-rotate="180">
-        <p>Let's demo some patterns.</p>
-        <p class="small">Create normal HTML markup, but add special classes and data-* attributes to exposes new non-standard features.</p>
-        <!-- TODO: add a markup example here -->
+    <div class="step" data-x="-6000" data-y="3500" data-rotate="90">
+        <h2>Live cloning of page elements</h2>
+        <form action="" class="small">
+            <h3>List of family members</h3>
+            <div class="pat-clone" data-pat-clone="template: #clone-template; trigger-element: .clone-trigger; max: 5">
+                <!-- First visible instance and also template -->
+                <fieldset class="clone">
+                    <legend>Family member 1</legend>
+                    <input name="name-1" size="20" type="text" placeholder="Name" />
+                    <input name="date-1" type="date" placeholder="birthdate" />
+                    <button type="button" class="pat-button remove-clone icon-trash">Remove</button>
+                </fieldset>
+                <fieldset id="clone-template" hidden>
+                    <legend>Family member #{1}</legend>
+                    <input name="name-1" size="20" type="text" placeholder="Name" />
+                    <input name="date-1" type="date" placeholder="birthdate" />
+                    <button type="button" class="pat-button remove-clone icon-trash">Remove</button>
+                </fieldset>
+            </div>
+            <!-- Clone trigger -->
+            <button type="button" class="pat-button clone-trigger">Add an extra family member</button>
+        </form>
+        </br>
+
+        <pre class="pat-syntax-highlight small">
+&lt;form action=""&gt;
+    &lt;h3&gt;List of family members&lt;/h3&gt;
+    &lt;div class="pat-clone" data-pat-clone="template: #clone-template; trigger-element: .clone-trigger; max: 5"&gt;
+        &lt;!-- First visible instance and also template --&gt;
+        &lt;fieldset class="clone"&gt;
+            &lt;legend&gt;Family member 1&lt;/legend&gt;
+            &lt;input name="name-1" size="20" type="text" placeholder="Name" /&gt;
+            &lt;input name="date-1" type="date" placeholder="birthdate" /&gt;
+            &lt;button type="button" class="pat-button remove-clone"&gt;Remove&lt;/button&gt;
+        &lt;/fieldset&gt;
+        &lt;fieldset id="clone-template" hidden&gt;
+            &lt;legend&gt;Family member #{1}&lt;/legend&gt;
+            &lt;input name="name-1" size="20" type="text" placeholder="Name" /&gt;
+            &lt;input name="date-1" type="date" placeholder="birthdate" /&gt;
+            &lt;button type="button" class="pat-button remove-clone"&gt;Remove&lt;/button&gt;
+        &lt;/fieldset&gt;
+    &lt;/div&gt;
+    &lt;!-- Clone trigger --&gt;
+    &lt;button type="button" class="pat-button clone-trigger"&gt;
+        Add an extra family member
+    &lt;/button&gt;
+&lt;/form&gt;
+        </pre>
+    </div>
+
+    <div class="step" data-x="-8000" data-y="3500" data-rotate="90">
+        <h2>Page injection (AJAX)</h2>
+        <div class="smaller">
+			<p>
+				<a href="/external-content.html#demo-content" class="pat-button pat-inject">Inject content</a>
+			</p>
+			<div id="demo-content" class="smaller">
+				<p>The injected content will appear in this div</p>
+			</div>
+        </div>
+        <pre class="pat-syntax-highlight small">
+&lt;div class="smaller"&gt;
+    &lt;p&gt;
+        &lt;a href="/external-content.html#demo-content"
+              class="pat-button pat-inject"&gt;Inject content&lt;/a&gt;
+    &lt;/p&gt;
+    &lt;div id="demo-content" class="smaller"&gt;
+        &lt;p&gt;The injected content will appear in this div&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+        </pre>
+    </div>
+
+    <div class="step" data-x="-9500" data-y="3500" data-rotate="90">
+        <h2>Other examples</h2>
+        <div class="list-group">
+            <ul class="list">
+                <li>Modal dialogs</li>
+                <li>Rich text editing</li>
+                <li>Form validation</li>
+                <li>Automatic form submission</li>
+                <li>Auto-tagging and automatic search suggestions</li>
+                <li>Slideshows</li>
+                <li>Galleries</li>
+                <li>&nbsp;...and more (see the Patternslib.com website).</li>
+            </ul>
+        </div>
     </div>
 
     <div class="step" data-x="2000" data-y="-2300">
