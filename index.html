@@ -139,51 +139,51 @@
         <img src="/style/blackboard.svg" />
     </div>
 
-    <div class="step" data-x="-2500" data-y="-5100">
+    <div class="step" data-x="-3000" data-y="-5100">
         <q>Why do designers like to work with prototypes?</q>
     </div>
 
-    <div class="step" data-x="-2500" data-y="-4500">
+    <div class="step" data-x="-3000" data-y="-4500">
         <blockquote>“Design isn’t just how it looks, design is how it works.”</blockquote>
         <cite>Steve Jobs</cite>
     </div>
 
-    <div class="step" data-x="-2500" data-y="-4000">
+    <div class="step" data-x="-3000" data-y="-4000">
         <ul class="list">
             <li>Building to think</li>
         </ul>
     </div>
-    <div class="step" data-x="-2500" data-y="-3800">
+    <div class="step" data-x="-3000" data-y="-3800">
         <ul class="list">
             <li>Learning faster by failing</li>
         </ul>
     </div>
-    <div class="step" data-x="-2500" data-y="-3600">
+    <div class="step" data-x="-3000" data-y="-3600">
         <ul class="list">
             <li>Permission to explore new behaviors</li>
         </ul>
     </div>
 
-    <div class="step" data-x="-2500" data-y="-3000">
+    <div class="step" data-x="-3000" data-y="-3000">
         <h2>The value of <em class="underline">first</em> making a rich, interactive <strong>prototype</strong>.</h2>
     </div>
 
-    <ul class="list step" data-x="-2500" data-y="-2000">
+    <ul class="list step" data-x="-3000" data-y="-2000">
         <li>Communicates the designer's vision to client and rest of team.</li>
     </ul>
-    <ul class="list step" data-x="-2500" data-y="-1800">
+    <ul class="list step" data-x="-3000" data-y="-1800">
         <li>Assumptions can be tested before they're implemented.</li>
     </ul>
-    <ul class="list step" data-x="-2500" data-y="-1600">
+    <ul class="list step" data-x="-3000" data-y="-1600">
         <li>Initial user-testing and feedback can be gathered.</li>
     </ul>
-    <ul class="list step" data-x="-2500" data-y="-1400">
+    <ul class="list step" data-x="-3000" data-y="-1400">
         <li>Design problems are solved during the planning stage.</li>
     </ul>
-    <ul class="list step" data-x="-2500" data-y="-1200">
+    <ul class="list step" data-x="-3000" data-y="-1200">
         <li>Developers see the context within which their work will be exposed to the end-user.</li>
     </ul>
-    <ul class="list step" data-x="-2500" data-y="-1000">
+    <ul class="list step" data-x="-3000" data-y="-1000">
         <li>Demonstrations make it easier to sell a website, concept or idea.</li>
     </ul>
 
@@ -406,6 +406,7 @@
         <h2>Other examples</h2>
         <div class="list-group">
             <ul class="list">
+                <li>RSS/Twitter feeds</li>
                 <li>Modal dialogs</li>
                 <li>Rich text editing</li>
                 <li>Form validation</li>
@@ -418,59 +419,106 @@
         </div>
     </div>
 
-    <div class="step" data-x="2000" data-y="-2300">
+    <div class="step" data-x="2500" data-y="-4300">
         <q class="longer-question">So, as a JS developer, how do I create new patterns?</p>
     </div>
 
-    <div class="step" data-x="2000" data-y="-1400">
+    <div class="step" data-x="2500" data-y="-2400">
         <p>Let's look at some code.</p>
-        <br/>
-        <div class="smaller">
-        <p>Javascript tools you'll need to know and use</p>
-        <ul class="list">
-            <li>Require.js</li>
-            <li>Bower</li>
-        </ul>
+        <pre class="pat-syntax-highlight small code-example">
+(function (root, factory) {
+    if (typeof define === 'function' && define.amd) {
+        define([
+            "jquery",
+            "pat-base"
+        ], function () {
+            return factory.apply(this, arguments);
+        });
+    } else {
+        factory ($, Base);
+    }
+}(this, function ($, Base) {
+    'use strict';
+
+    return Base.extend({
+        name: 'cycle',
+        trigger: ".pat-cycle",
+
+        init: function () {  
+            // Your custom code comes here.
+        }
+    });
+}));
+    </pre>
+    </div>
+
+
+    <div class="step" data-x="2500" data-y="-1400">
+        <p>Just the custom part</p>
+        <pre class="pat-syntax-highlight small code-example">
+init: function () {  
+    var $quotes = this.$el.find('blockquote');
+    var $quote = $quotes.eq(Math.floor((Math.random()*$quotes.length)));
+    $quote.show();
+    setInterval(function () {
+        var $newquote = $quote.next('blockquote');
+        if (!$newquote.length) {
+            $newquote = $quotes.first();
+        }
+        $quote.fadeOut(function () {
+            $newquote.fadeIn();
+            $quote = $newquote;
+        });
+    }.bind(this), 8000);
+}
+        </pre>
+    </div>
+
+    <div class="step" data-x="2500" data-y="-400">
+        <p>Here is the corresponding markup</p>
+        <pre class="pat-syntax-highlight small code-example">
+&lt;div id="quotes" class="pat-cycle"&gt;
+    &lt;blockquote&gt;
+        &lt;p class="quote"&gt;“Quote 1”&lt;/p&gt;
+        &lt;p class="quoter"&gt;Rene Descartes&lt;/p&gt;
+    &lt;/blockquote&gt;
+    &lt;blockquote style="display:none"&gt;
+        &lt;p class="quote"&gt;“Quote 2”&lt;/p&gt;
+        &lt;p class="quoter"&gt;W. Clement Stone&lt;/p&gt;
+    &lt;/blockquote&gt;
+    &lt;blockquote style="display:none"&gt;
+        &lt;p class="quote"&gt;“Quote 3”&lt;/p&gt;
+        &lt;p class="quoter"&gt;Henry David Thoreau&lt;/p&gt;
+    &lt;/blockquote&gt;
+    &lt;!-- Add more quotes here... --&gt;
+&lt;/div&gt;
+        </pre>
+    </div>
+
+    <div class="step" data-x="2500" data-y="500">
+        <p>And here it is in action</p>
+        <div id="quotes" class="pat-cycle smaller">
+            <blockquote style="display:none">
+                <p class="quote">“Except our own thoughts, there is nothing absolutely in our power.”</p><p class="quoter">Rene Descartes</p>
+            </blockquote>
+            <blockquote style="display:none">
+                <p class="quote">“Let the wise guard their thoughts, which are difficult to perceive, extremely subtle, and wander at will. Thought which is well guarded is the bearer of happiness”.</p><p class="quoter">Buddha</p>
+            </blockquote>
+            <blockquote style="display:none">
+                <p class="quote">“Our life is what our thoughts make it. A man will find that as he alters his thoughts toward things and other people, things and other people will alter towards him.”</p><p class="quoter">James Allen</p>
+            </blockquote>
         </div>
-        <!-- TODO: Add example pattern code here -->
     </div>
 
-    <div class="step" data-x="5000" data-y="2325" data-scale="1">
-        <!--
-            And now it gets really exciting! We move into third dimension!
-
-            Along with `data-x` and `data-y`, you can define the position on third (Z) axis, with
-            `data-z`. In the example below we use `data-z="-3000"` meaning that element should be
-            positioned far away from us (by 3000px).
-        -->
-        <p class="smaller">Create JS modules which configure a DOM parser to check for a certain class name and (optionally) data-* attributes.
-           Such a module will automatically be called when parser finds the markup in the DOM.
-        </p>
-    </div>
-
-    <!--
-        This step here doesn't introduce anything new when it comes to data attributes, but you
-        should notice in the demo that some words of this text are being animated.
-        It's a very basic CSS transition that is applied to the elements when this step element is
-        reached.
-
-        At the very beginning of the presentation all step elements are given the class of `future`.
-        It means that they haven't been visited yet.
-
-        When the presentation moves to given step `future` is changed to `present` class name.
-        That's how animation on this step works - text moves when the step has `present` class.
-
-        Finally when the step is left the `present` class is removed from the element and `past`
-        class is added.
-
-        So basically every step element has one of three classes: `future`, `present` and `past`.
-        Only one current step has the `present` class.
-    -->
     <div class="step" data-x="4000" data-y="-1850" data-rotate="270" data-scale="1">
         <p class="smaller">There is a <a href="https://www.npmjs.com/package/generator-patternslib" target="_blank">pattern generator</a>
         created with <a href="http://yeoman.io/" target="_blank">Yeoman</a>, which you can use to generate new patterns.
 
-        <pre class="pat-syntax-highlight smaller">yo patternslib pat-example</pre>
+        <pre class="pat-syntax-highlight smaller code-example">
+npm install generator-patternslib
+mkdir pat-example && cd pat-example
+yo patternslib pat-example
+        </pre>
     </div>
 
     <div class="step" data-x="-3500" data-y="-400" data-scale="1">
@@ -478,15 +526,21 @@
     </div>
     <ul class="list step" data-x="-3500" data-y="-200">
         <li>Highly reusable.</li>
+        <!--
         <li class="smaller"><em>Individual patterns can be reused again and again.</em></li>
+        -->
     </ul>
     <ul class="list step" data-x="-3500" data-y="0">
         <li>Composable</li>
+        <!--
         <li class="smaller"><em>Impressive features can be derived by combining patterns in novel ways.</em></li>
+        -->
     </ul>
     <ul class="list step" data-x="-3500" data-y="200">
         <li>Customizable</li>
+        <!--
         <li class="smaller"><em>Only use those patterns which you actually need.</em></li>
+        -->
     </ul>
     <ul class="list step" data-x="-3500" data-y="500">
         <li>Allows for graceful degradation.</li>
@@ -502,8 +556,10 @@
         </li>
     </ul>
     <ul class="list step" data-x="-3500" data-y="800">
-        <li>Core codebase is small and easy to understand.</li>
+        <li>Core codebase is easy to understand.</li>
+        <!--
         <li class="smaller"><em>Scanner, parser and registry code is altogether 620 loc.</em></li>
+        -->
     </ul>
 
     <div class="step" data-x="-5000" data-y="-1000">
@@ -512,26 +568,24 @@
 
     <ul class="list step" data-x="-5000" data-y="-800">
         <li>Single-page apps.</li>
-        <li class="smaller"><em>Although you could perhaps still encapsulate and load it as a pattern.</em></li>
-        <!-- TODO find examples in Plone -->
+        <!-- <li class="smaller"><em>Although you could perhaps still encapsulate and load it as a pattern.</em></li> -->
     </ul>
 
     <ul class="list step" data-x="-5000" data-y="-600">
-        <li>Individual patterns as submodules not exposed to the designer.</li>
-        <li class="smaller"><em>Clunky and misses the point.</em></li>
-        <!-- TODO find examples in Plone -->
+        <li>Patterns as submodules not exposed to designer.</li>
+        <!-- <li class="smaller"><em>Clunky and misses the point.</em></li> -->
     </ul>
 
-    <div class="step" data-x="3500" data-y="800" data-scale="1">
+    <div class="step" data-x="4000" data-y="800" data-scale="1">
         <h2>Comparison with other JS frameworks or concepts</h2>
     </div>
 
-    <div class="list step" data-x="3500" data-y="1400">
+    <div class="list step" data-x="4000" data-y="1500">
         <p>Fundamental difference is that the intended user of <em class="colored">Patterns</em> is the prototype designer.</p>
         <p>They shouldn't have to worry about Javascript.</p>
     </div>
 
-    <div class="step" data-x="3500" data-y="2100" data-scale="1">
+    <div class="step" data-x="4000" data-y="2500" data-scale="1">
         <h3>Backbone.js</h3>
         <p class="smaller">
             The Base class from which patterns are usually derived <em>(but don't have to be)</em>, is very similar to the <strong>Backbone.Model</strong> class.
@@ -546,7 +600,7 @@
         </p>
     </div>
 
-    <div class="step" data-x="3500" data-y="3000" data-scale="1">
+    <div class="step" data-x="4000" data-y="3500" data-scale="1">
         <h3>Angular.js</h3>
         <p class="smaller">
             Angular has directives.
@@ -567,7 +621,7 @@
         </p>
     </div>
 
-    <div class="step" data-x="3500" data-y="3800" data-scale="1">
+    <div class="step" data-x="4000" data-y="4500" data-scale="1">
         <h3>React.js</h3>
         <p class="smaller">
             Should be possible to use React views or things like the Virtual DOM and JSX in Patterns.
@@ -578,7 +632,7 @@
         <p>
     </div>
 
-    <div class="step" data-x="3500" data-y="4600">
+    <div class="step" data-x="4000" data-y="5500">
         <h3>Webcomponents</h3>
         <p class="small">
             <strong><a href="http://www.revillweb.com/articles/why-web-components-are-important/" target="_blank">Definition:</a></strong>
@@ -588,71 +642,64 @@
             </blockquote>
         </p>
     </div>
-    <div class="step" data-x="3500" data-y="4850">
+    <div class="step" data-x="4000" data-y="5800">
         <p class="smaller">
             Similar idea to Patterns.
         </p>
+        <!--
         <p class="small">
             Declaratively define widgets and enhanced functionality in your HTML.
         </p>
+        -->
     </div>
-    <div class="step" data-x="3500" data-y="5000">
-        <p class="smaller">
-            A Patternslib of webcomponents
-        </p>
-        <p class="small">
-            Choose the <del>patterns</del> components you want and then download an instantly usable bundle.
-        </p>
-    </div>
-    <div class="step" data-x="3500" data-y="5150">
-        <p class="smaller">
-            Advantages:
-        </p>
-        <ul class="list small">
-            <li><a href="http://www.w3.org/standards/techs/components" target="_blank">W3C standard</a></li>
-            <li>Encapsulation in a "Shadow DOM"</li>
-            <li class="smaller">
-                <em>
-                The markup for such a widget is encapsulated in its own
-                DOM, with its own CSS rules, which doesn't affect the
-                "normal" DOM around it.
-                </em>
-            </li>
-        </ul>
-    </div>
-    <div class="step" data-x="3500" data-y="5340">
+    <div class="step" data-x="4000" data-y="6000">
         <p class="smaller">
             Not ready for prime time.
         </p>
+        <!--
         <p class="small">
             However, no IE or Safari support (although <a href="https://github.com/WebComponents/webcomponentsjs" target="_blank">polyfills</a> exist).
         </p>
         <p class="small">
             No reason why you can't use both Webcomponents and Patterns in a single project.
         </p>
+        -->
+    </div>
+    <div class="step" data-x="4000" data-y="6200">
+        <p class="smaller">
+            Advantages:
+        </p>
+        <ul class="list smaller">
+            <li><a href="http://www.w3.org/standards/techs/components" target="_blank">W3C standard</a></li>
+            <li>Encapsulation in a "Shadow DOM"</li>
+        </ul>
+    </div>
+    <div class="step" data-x="4000" data-y="6450">
+        <p class="smaller">
+            A Patternslib of webcomponents conceivable
+        </p>
+        <!--
+        <p class="small">
+            Choose the <del>patterns</del> components you want and then download an instantly usable bundle.
+        </p>
+        -->
     </div>
 
-    <div class="step" data-x="-2000" data-y="1540">
+    <div class="step" data-x="-4000" data-y="6000">
         <h2>Resources</h2>
         <ul class="list">
             <li>
-                Patternslib website: <a href="http://patternslib.com">patternslib.com</a>
-            </li>
-            <li>
-               <a href="https://github.com/Patternslib/Patterns/blob/master/docs/developer/create-a-pattern.md">How to create a pattern</a>
+                Website: <a href="http://patternslib.com">patternslib.com</a>
             </li>
         </ul>
-    </div>
-
-    <div class="step" data-x="-2000" data-y="3000">
         <h2>Acknowledgements</h2>
-        <ul class="list">
+        <ul class="list smaller">
             <li>
                 Blackboard graphic by Cornelis Colbach.
             </li>
         </ul>
         <h2>References</h2>
-        <ul class="list">
+        <ul class="list smaller">
             <li>
                 <a href="http://www.ideo.com/images/uploads/news/pdfs/Prototypes_as_Design_Tools_1.pdf" target="_blank">
                     Prototypes as (Design) Tools for Behavioral and Organizational Change.
@@ -676,7 +723,32 @@
             as `data-rotate` (these two are basically aliases).
         -->
         <h2>Thanks for attending</h2>
-        <p>Presentated by <a href="https://opkode.com">JC Brand</a></p>
+        <p>Presented by <a href="https://opkode.com">JC Brand</a></p>
+        <p class="smaller"> &nbsp;</p>
+        <div class="row smaller">
+            <div class="six columns">
+                Website and blog:
+            </div>
+            <div class="six columns">
+                <a href=https://opkode.com">opkode.com</a>
+            </div>
+        </div>
+        <div class="row smaller">
+            <div class="six columns">
+                Email and IM (XMPP):
+            </div>
+            <div class="six columns">
+                <a href="mailto:jc@opkode.com">jc@opkode.com</a>
+            </div>
+        </div>
+        <div class="row smaller">
+            <div class="six columns">
+                Twitter:
+            </div>
+            <div class="six columns">
+                <a href="http://twitter.com/jcopkode">@jcopkode</a>
+            </div>
+        </div>
     </div>
 
     <!--
