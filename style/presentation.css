@@ -592,3 +592,6 @@ article.pat-stacks, #demo-content {
     background-color: darkblue;
 }
 
+.code-example {
+    font-family: courier;
+}
