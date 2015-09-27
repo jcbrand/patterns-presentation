@@ -13,79 +13,6 @@
     <link rel="shortcut icon" href="favicon.png" />
 </head>
 
-<!-- NOTES:
-    What is Patternslib?
-      Depends on who you are.
-        Designer:
-            A way to add interactivity to your prototype without having to learn or write Javascript.
-        Developer:
-            A way to write, encapsulate, package and expose front-end Javascript features to designers.
-
-    How do Patterns work?
-        Depends on who you are.
-            Designer:
-                Create normal HTML markup, but add special classes and data-* attributes to exposes new non-standard features
-                    Like?
-                        * Tabs
-                        * Rich text editing
-                        * Ajax page loading
-                        * Form validation
-                        * ... Pretty much anything that can be done in JS
-            Developer:
-                Create JS modules which configure a DOM parser to check for a certain class name and (optionally) data-* attributes.
-                Such a module will automatically be called when parser finds the markup in the DOM.
-
-    How do you create a new Pattern?
-        - Yeoman
-        - Require.js
-        - NPM
-        - Bower.json
-
-    Advantages of Patterns:
-        If done right, allows graceful degradation
-        Small and easy to grok. (Compare size of patterns core with other frameworks)
-        Pay for what you eat, use only the patterns you need, discard the rest.
-
-    Comparison with other JS frameworks or concepts:
-        Main difference between Patterns and other frameworks is the "Ausgangspunkt".
-        Seen from the designer, not the developer.
-
-        Backbone:
-            You can use Backbone in Patterns.
-        Angular.js:
-            Has ng- "directives", but is very developer-sentric and not accessible to designers at all.
-        React.js:
-            Don't have direct experience, but could be used. ???
-
-        Webcomponents:
-            Definition:
-                "A standardised non-obtrusive way to write encapsulated functionality in the form of a component.
-                Each component can hold its own HTML markup, styles and JavaScript code without the risk of breaking things around it."
-                Source: http://www.revillweb.com/articles/why-web-components-are-important/
-
-            Very similar to one usecase of Patterns, which is to embed enhanced
-            widgets into the DOM.
-
-            Has some advantages:
-                - W3C standard (http://www.w3.org/standards/techs/components)
-                - Shadow DOM
-                    The markup for such a widget is encapsulated in its own
-                    DOM, with its own CSS rules, which doesn't affect the
-                    "normal" DOM around it.
-
-            However, no IE or Safari support (although polyfills exist).
-            https://github.com/WebComponents/webcomponentsjs
-
-            No reason why you can't use both Webcomponents and Patterns in a
-            single project. We could also perhaps add support for Webcomponents
-            or individual features such as Shadow DOM to Patterns. Needs some
-            more investigation.
-
-    Ideas:
-        Demo loading of Markdown
-        Demo code syntax highlighting
--->
-
 <!--
     Body element is used by impress.js to set some useful class names, that will allow you to detect
     the support and state of the presentation in CSS or other scripts.
@@ -229,11 +156,11 @@
         <h4>Toggling CSS classes</h4>
         <br/>
         <p><span class="red smaller" id="toToggle">This is getting toggled</span></p>
-        <button id="colour" class="pat-toggle pat-button" data-pat-toggle="selector: #toToggle; value: red blue; store: session">Toggle color</button>
+        <button class="pat-toggle pat-button" data-pat-toggle="selector: #toToggle; value: red blue; store: session">Toggle color</button>
 
         <pre class="pat-syntax-highlight small">
 &lt;p&gt;&lt;span class="red" id="toToggle"&gt;This is getting toggled&lt;/span&gt;&lt;/p&gt;
-&lt;button id="colour" class="pat-toggle pat-button"
+&lt;button class="pat-toggle"
            data-pat-toggle="selector: #toToggle; value: red blue; store: session"&gt;
     Toggle color
 &lt;/button&gt;
@@ -243,9 +170,9 @@
     <div class="step" data-x="-2800" data-y="3500" data-rotate="90">
         <h4>Switching CSS classes</h4>
         <ul class="test1 smaller">
-            <li class="foo mode-Blue bar">Entry 1</li>
-            <li class="mode-Green">Entry 2</li>
-            <li class="mode-Red">Stays red</li>
+            <li class="mode-Blue">This entry was originally blue</li>
+            <li class="mode-Green">This entry was originally green</li>
+            <li class="mode-Red">This entry will always be red</li>
         </ul>
         <fieldset class="btn-group">
             <button class="pat-switch pat-button" data-pat-switch="selector: ul.test1 li; remove: mode-Blue ; add: mode-Green; store: session" title="Make all green">Turn Green</button>
@@ -254,17 +181,19 @@
 
         <pre class="pat-syntax-highlight small">
 &lt;ul class="test1"&gt;
-    &lt;li class="foo mode-Blue bar"&gt;Entry 1&lt;/li&gt;
-    &lt;li class="mode-Green"&gt;Entry 2&lt;/li&gt;
-    &lt;li class="mode-Red"&gt;Stays red&lt;/li&gt;
+    &lt;li class="mode-Blue"&gt;This entry was originally blue&lt;/li&gt;
+    &lt;li class="mode-Green"&gt;This entry was originally green&lt;/li&gt;
+    &lt;li class="mode-Red"&gt;This entry will always be red&lt;/li&gt;
 &lt;/ul&gt;
 &lt;br/&gt;
-&lt;button class="pat-switc pat-buttonh"
-           data-pat-switch="selector: ul.test1 li; remove: mode-Blue ; add: mode-Green"
-           title="Make all green"&gt;Turn Green&lt;/button&gt;
-&lt;button class="pat-switc pat-buttonh"
-           data-pat-switch="selector: ul.test1 li; remove: mode-Green ; add: mode-Blue"
-           title="Make all blue"&gt;Turn Blue&lt;/button&gt;
+&lt;button class="pat-switch"
+           data-pat-switch="selector: ul.test1 li; remove: mode-Blue ; add: mode-Green"&gt;
+        Turn Green
+&lt;/button&gt;
+&lt;button class="pat-switch"
+           data-pat-switch="selector: ul.test1 li; remove: mode-Green ; add: mode-Blue"&gt;
+        Turn Blue
+&lt;/button&gt;
         </pre>
     </div>
 
@@ -302,7 +231,7 @@
     <div class="step" data-x="-5000" data-y="3500" data-rotate="90">
         <h4>Tabs Code Example</h4>
         <pre class="pat-syntax-highlight small">
-&lt;nav class="tabs smaller"&gt;
+&lt;nav class="tabs"&gt;
     &lt;a href="#sheet-1" class="current"&gt;Tab one&lt;/a&gt;
     &lt;a href="#sheet-2"&gt;Tab two&lt;/a&gt;
     &lt;a href="#sheet-3"&gt;Tab three&lt;/a&gt;
@@ -310,18 +239,12 @@
 &lt;article class="pat-stacks"&gt;
 &lt;section id="sheet-1"&gt;
     &lt;h5&gt;Sheet one&lt;/h5&gt;
-    &lt;p class="smaller"&gt;
-    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-    &lt;/p&gt;
+    &lt;p&gt;Sed ut perspiciatis unde omnis iste natus error sit voluptatem...&lt;/p&gt;
 &lt;/section&gt;
-
 &lt;!-- Removed one &lt;section&gt; here to save space --&gt;
-
 &lt;section id="sheet-3"&gt;
     &lt;h5&gt;Sheet three&lt;/h5&gt;
-    &lt;p class="smaller"&gt;
-        Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. 
-    &lt;/p&gt;
+    &lt;p&gt;Neque porro quisquam est, qui dolorem ipsum quia dolor sit...&lt;/p&gt;
 &lt;/section&gt;
 &lt;/article&gt;
         </pre>
@@ -354,27 +277,26 @@
     <div class="step" data-x="-7500" data-y="3500" data-rotate="90">
         <h2 class="smaller">Live cloning of page elements (code example)</h2>
         <pre class="pat-syntax-highlight small">
-&lt;form action=""&gt;
+&lt;form&gt;
     &lt;h3&gt;List of family members&lt;/h3&gt;
-    &lt;div class="pat-clone" data-pat-clone="template: #clone-template; trigger-element: .clone-trigger; max: 5"&gt;
+    &lt;div class="pat-clone"
+            data-pat-clone="template: #clone-template; trigger-element: .clone-trigger; max: 5"&gt;
         &lt;!-- First visible instance and also template --&gt;
         &lt;fieldset class="clone"&gt;
             &lt;legend&gt;Family member 1&lt;/legend&gt;
             &lt;input name="name-1" size="20" type="text" placeholder="Name" /&gt;
             &lt;input name="date-1" type="date" placeholder="birthdate" /&gt;
-            &lt;button type="button" class="pat-button remove-clone"&gt;Remove&lt;/button&gt;
+            &lt;button type="button" class="remove-clone"&gt;Remove&lt;/button&gt;
         &lt;/fieldset&gt;
         &lt;fieldset id="clone-template" hidden&gt;
             &lt;legend&gt;Family member #{1}&lt;/legend&gt;
             &lt;input name="name-1" size="20" type="text" placeholder="Name" /&gt;
             &lt;input name="date-1" type="date" placeholder="birthdate" /&gt;
-            &lt;button type="button" class="pat-button remove-clone"&gt;Remove&lt;/button&gt;
+            &lt;button type="button" class="remove-clone"&gt;Remove&lt;/button&gt;
         &lt;/fieldset&gt;
     &lt;/div&gt;
     &lt;!-- Clone trigger --&gt;
-    &lt;button type="button" class="pat-button clone-trigger"&gt;
-        Add an extra family member
-    &lt;/button&gt;
+    &lt;button type="button" class=" clone-trigger"&gt;Add an extra family member&lt;/button&gt;
 &lt;/form&gt;
         </pre>
     </div>
@@ -390,10 +312,10 @@
 			</div>
         </div>
         <pre class="pat-syntax-highlight small">
-&lt;div class="smaller"&gt;
+&lt;div&gt;
     &lt;p&gt;
         &lt;a href="/external-content.html#demo-content"
-              class="pat-button pat-inject"&gt;Inject content&lt;/a&gt;
+              class="pat-inject"&gt;Inject content&lt;/a&gt;
     &lt;/p&gt;
     &lt;div id="demo-content" class="smaller"&gt;
         &lt;p&gt;The injected content will appear in this div&lt;/p&gt;
