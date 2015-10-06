@@ -326,6 +326,24 @@
     </div>
 
     <div class="step" data-x="-8500" data-y="3500" data-rotate="90">
+        <!--
+            With JSON, you need to know what to do with it client-side, which means you
+            need to write Javascript code. Doesn't square with allowing the designer to
+            build prototype without JS knowledge.
+
+            Besides, the (XHR) content injection way allows you to progressively enhance an
+            existing site, without having to rewrite large parts.
+
+            That said, if you have a JS developer on board and are willing to write custom
+            JS code, there's nothing stopping you from writing patterns that make JSON
+            calls.
+
+            You just lose the lego-blocks approach, because no way to standardise the
+            client-side JSON transforms. Perhaps someone comes up with something like that,
+            but I'm not aware of it.
+
+            Can mention Netsight wanting JSON in Plone intranet.
+        -->
         <h2>Page injection (AJAX)</h2>
         <div class="smaller">
 			<p>
@@ -631,36 +649,28 @@ yo patternslib pat-example
         -->
     </div>
 
-    <div class="step" data-x="-4000" data-y="6000">
-        <h2>Resources</h2>
+    <div class="step" data-x="6000" data-y="0">
+        <h3>Why Patternslib is a good fit for a CMS</h3>
+    </div>
+
+    <div class="step" data-x="6000" data-y="1000">
+        <h3>Why Patternslib is a good fit for a CMS</h3>
         <ul class="list">
-            <li>
-                Website: <a href="http://patternslib.com">patternslib.com</a>
-            </li>
+            <li>Progressive enhancement</li>
         </ul>
-        <h2>Acknowledgements</h2>
-        <ul class="list smaller">
-            <li>
-                Blackboard graphic by Cornelis Colbach.
-            </li>
+    </div>
+
+    <div class="step" data-x="6000" data-y="2000">
+        <h3>Why Patternslib is a good fit for a CMS</h3>
+        <ul class="list">
+            <li>Injection works with existing pages and content</li>
         </ul>
-        <h2>References</h2>
-        <ul class="list smaller">
-            <li>
-                <a href="https://opkode.com/blog/review-zen-and-the-art-of-motorcycle-maintenance/" target="_blank">
-                    My review of "Zen and the art of motorcycle maintenance".
-                </a>
-            </li>
-            <li>
-                <a href="http://www.ideo.com/images/uploads/news/pdfs/Prototypes_as_Design_Tools_1.pdf" target="_blank">
-                    Prototypes as (Design) Tools for Behavioral and Organizational Change.
-                </a>
-            </li>
-            <li>
-                <a href="https://boagworld.com/design/a-prototype-is-worth-a-thousand-words/" target="_blank">
-                    A prototype is worth a thousand words.
-                </a>
-            </li>
+    </div>
+
+    <div class="step" data-x="6000" data-y="3000">
+        <h3>Why Patternslib is a good fit for a CMS</h3>
+        <ul class="list">
+            <li>Non-JS people can add functionality</li>
         </ul>
     </div>
 
@@ -700,6 +710,39 @@ yo patternslib pat-example
                 <a href="http://twitter.com/jcopkode">@jcopkode</a>
             </div>
         </div>
+    </div>
+
+    <div class="step" data-x="-4000" data-y="6000">
+        <h2>Resources</h2>
+        <ul class="list">
+            <li>
+                Website: <a href="http://patternslib.com">patternslib.com</a>
+            </li>
+        </ul>
+        <h2>Acknowledgements</h2>
+        <ul class="list smaller">
+            <li>
+                Blackboard graphic by Cornelis Colbach.
+            </li>
+        </ul>
+        <h2>References</h2>
+        <ul class="list smaller">
+            <li>
+                <a href="https://opkode.com/blog/review-zen-and-the-art-of-motorcycle-maintenance/" target="_blank">
+                    My review of "Zen and the art of motorcycle maintenance".
+                </a>
+            </li>
+            <li>
+                <a href="http://www.ideo.com/images/uploads/news/pdfs/Prototypes_as_Design_Tools_1.pdf" target="_blank">
+                    Prototypes as (Design) Tools for Behavioral and Organizational Change.
+                </a>
+            </li>
+            <li>
+                <a href="https://boagworld.com/design/a-prototype-is-worth-a-thousand-words/" target="_blank">
+                    A prototype is worth a thousand words.
+                </a>
+            </li>
+        </ul>
     </div>
 
     <!--
