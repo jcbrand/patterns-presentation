@@ -255,6 +255,11 @@ div.list-group {
     list-style: disc inside;
     font-size: 80%;
 }
+
+.list li.no-bullet {
+    list-style: none;
+    margin-left: 1em;
+}
 .list li.smaller {
     list-style: none;
     font-size: 60%;
@@ -645,4 +650,9 @@ article.pat-stacks, #demo-content {
 
 span.scene {
     color: #E1B07E;
+}
+
+.list-heading {
+    color: #cca43b;
+    font-weight: bold;
 }
