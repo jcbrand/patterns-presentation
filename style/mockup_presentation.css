@@ -232,6 +232,9 @@ sup {
     margin: 1em 0;
 }
 
+.smallish {
+    font-size: 80%;
+}
 .smaller {
     font-size: 70%;
 }
