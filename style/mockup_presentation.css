@@ -572,9 +572,6 @@ header p {
   font-size: 50%;
 }
 
-#intro img {
-    width: 50%;
-}
 @media only screen and (max-width: 767px) {
     #intro {
         padding-top: 11%;

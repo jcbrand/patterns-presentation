@@ -27,7 +27,9 @@
             <h1>Patternslib and Mockup</h1>
             <p class="byline">Breaking up and getting back together again.</p>
         </header>
-        <img src="/images/intro.png" />
+        <div class="centered-image">
+            <img class="step-image" src="/images/funny-breakup.png" />
+        </div>
         <p class="small center">A presentation by <a href="https://opkode.com">JC Brand</a></p>
     </div>
 
@@ -68,10 +70,11 @@
     <div class="step" data-x="-8000" data-y="-1000">
         <h4>What does Patternslib consist of?</h4>
         <ul class="list">
-            <li>Registry (including a scanner)</li>
-            <li>Parser</li>
-            <li>Loader (pattern initializer)</li>
-            <li>The individual interaction patterns</li>
+            <li class="list-heading">Core components</li>
+            <li class="no-bullet">Registry (including a scanner)</li>
+            <li class="no-bullet">Parser</li>
+            <li class="no-bullet">Loader (pattern initializer)</li>
+            <li class="list-heading">The individual interaction patterns</li>
         </ul>
     </div>
 
@@ -98,9 +101,6 @@
 
     <div class="step" data-x="-8000" data-y="3000">
         <h3>Let's investigate...</h3>
-        <div class="centered-image">
-        <img class="step-image-smaller" src="/images/detective.jpg" />
-        </div>
     </div>
 
     <div class="step" data-x="-8000" data-y="4000" data-scale="0.3">
@@ -194,26 +194,88 @@
     <div class="step" data-x="-2000" data-y="-4000">
         <h2>So, why did Rok fork?</h2>
     </div>
-    <div class="step" data-x="-2000" data-y="-3000" data-scale="0.3">
-        <h2>Rok's stated reasons</h2>
+    <div class="step" data-x="-2000" data-y="-3000" data-scale="0.5">
+        <h2>Rok's stated reasons for the fork</h2>
+        <h3>Reason #1</h3>
         <ul class="list">
             <li class="list-heading">Didn't like Patternslib's configuration syntax</li>
+            <!-- By "simplifying" the parser, a significant change was made
+                in relation to who the intended audience for Mockup is.
+            -->
+            <!-- Reminded of Einstein's famous quote: Make something as simple as possible, but not simpler. -->
             <li class="no-bullet">Makes parser more complex</li>
             <li class="no-bullet">Means more documentation</li>
             <li class="no-bullet">"avoid to learn new things as much as possible"</li>
+        </ul>
+    </div>
+    <div class="step" data-x="-2000" data-y="-2000" data-scale="0.5">
+        <h2>Patternslib's configuration is meant to emulate CSS</h2>
+        Lowest common denominator between designers and developers.
+    </div>
+
+    <div class="step" data-x="-2000" data-y="-1000" data-scale="0.5">
+        <h3>Consider this CSS</h3>
+        <pre class="pat-syntax-highlight small">
+            /* These rules... */
+            background-repeat: no-repeat;
+            background-position: center;
+            background-image: url("../img/image.png");
+
+            /* Can be rewritten as one rule */
+            background: no-repeat center url("../img/image.png");
+        </pre>
+    </div>
+
+    <div class="step" data-x="-2000" data-y="0" data-scale="0.5">
+        <h3>Patterns</h3>
+        <pre class="pat-syntax-highlight small">
+            /* Written out */
+            &lt;div data-pat-navigation="control-startstop: true; control-nav: true"&gt;...&lt;/div&gt;
+
+            /* Shorter version */
+            &lt;div data-pat-navigation="control: startstop nav"&gt;...&lt;/div&gt;
+        </pre>
+    </div>
+
+    <div class="step" data-x="-2000" data-y="1000" data-scale="0.5">
+        <h3>Patterns also had a shorthand notation (rarely used)</h3>
+        <pre class="pat-syntax-highlight small">
+            <!-- Extended version -->
+            &lt;button class="tag-toggle"
+                    data-pat-toggle="selector: .myClass; attribute: class; value: active"&gt;
+                ...
+            &lt;/button&gt;
+
+            <!-- Shortened version -->
+            &lt;button class="tag-toggle" data-pat-toggle=".myClass class active"&gt;
+                ...
+            &lt;/button&gt;
+        </pre>
+    </div>
+
+    <div class="step" data-x="-2000" data-y="2000">
+        <h2>Rok's stated reasons for the fork</h2>
+        <h3>Reason #2</h3>
+        <ul class="list">
             <li class="list-heading">Wanted to scan patterns outside in</li>
             <li class="no-bullet">Cuts down on complexity</li>
+        </ul>
+    </div>
+    <div class="step" data-x="-2000" data-y="3000" data-scale="0.3">
+        <h2>Rok's stated reasons for the fork</h2>
+        <h3>Reason #3</h3>
+        <ul class="list">
             <li class="list-heading">Difficulty keeping up with changes upstream</li>
         </ul>
     </div>
 
-    <div class="step" data-x="-6000" data-y="-8000">
+    <div class="step" data-x="-6000" data-y="4000">
         <h2>
         Meanwhile, Patternslib development continues and sees deployment in various sites.
         </h2>
         <!-- Perhaps show logos of sites here -->
     </div>
-    <div class="step" data-x="-6000" data-y="-7000">
+    <div class="step" data-x="-6000" data-y="5000">
         <div class="row">
             <span class="three columns">1st half of 2014:</span>
             <span class="eight columns scene">
@@ -221,7 +283,7 @@
             </span>
         </div>
     </div>
-    <div class="step" data-x="-6000" data-y="-6000">
+    <div class="step" data-x="-6000" data-y="6000">
         <h3>Why Patternslib?</h3>
         <!--
             The Patternslib demonstration at Aarnhem was based on an intranet Syslab
@@ -231,7 +293,7 @@
             UI/UX Cornelis was able to design with Patternslib.
         -->
     </div>
-    <div class="step" data-x="-6000" data-y="-5000">
+    <div class="step" data-x="-6000" data-y="7000">
         <h3>Stardesk - intranet for Star Alliance</h3>
         <div class="centered-image"><img class="step-image" src="images/stardesk.jpg"/></div>
     </div>
@@ -314,7 +376,7 @@
         mockup-core was finally removed completely from mockup.
     </div>
 
-    <div class="step" data-x="-2000" data-y="0">
+    <div class="step" data-x="3000" data-y="0" data-scale="0.5">
         <h4>Good stuff taken from Mockup</h4>
         <ul class="list">
             <li>Base Pattern</li>
@@ -322,7 +384,7 @@
         </ul>
     </div>
 
-    <div class="step" data-x="-2000" data-y="1000" data-scale="0.3">
+    <div class="step" data-x="3000" data-y="1000" data-scale="0.3">
         <h4>Issues remain</h4>
         <ul class="list">
             <li>Parser couldn't be merged.</li>
@@ -333,11 +395,11 @@
         </ul>
     </div>
 
-    <div class="step" data-x="-2000" data-y="2000">
+    <div class="step" data-x="3000" data-y="2000">
         <h4>Mockup patterns are now simply Patternslib patterns, but which reside in the mockup package.</h4>
     </div>
 
-    <div class="step" data-x="-2000" data-y="3000">
+    <div class="step" data-x="3000" data-y="3000">
         <h4>Goals</h4>
         <ul class="smaller">
             <li style="color:#cca43b">[*] Deprecate mockup-core and merge into Patternslib</li>
@@ -421,6 +483,13 @@
         </blockquote>
     </div>
 
+    <div class="step" data-x="0" data-y="7000">
+        <blockquote class="smaller">
+            The community is more important than the product.
+            <cite><a href="http://cultureandempire.com/html/cande.html">Peter Hintjens - Culture & Empire: Digital Revolution</a></cite>
+        </blockquote>
+    </div>
+
     <div class="step" data-x="2000" data-y="-3000">
         <h2>Patternslib is still a good fit for Plone</h2>
         <ul class="list">
@@ -432,6 +501,7 @@
             <li>It's as if Diazo was made for it.</li>
         </ul>
     </div>
+
 
     <div id="its-in-3d" class="step" data-x="3000" data-y="3500" data-z="-100" data-rotate-x="-40" data-rotate-y="10" data-scale="2">
         <!--
