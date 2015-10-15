@@ -30,6 +30,7 @@
         <div class="centered-image">
             <img class="step-image" src="images/funny-breakup.png" />
         </div>
+        <a class="small" href="https://opkode.com/presentations/2015-10-ploneconf">opkode.com/presentations/2015-10-ploneconf/mockup.html</a>
         <p class="small center">A presentation by <a href="https://opkode.com">JC Brand</a></p>
     </div>
 
@@ -398,7 +399,11 @@
     </div>
 
     <div class="step" data-x="-4000" data-y="4500" data-scale="0.5">
-        mockup-core was finally completely removed from mockup.
+        <h3>Work done at Munich Plone 5 theming sprint</h3>
+        <ul class="list">
+            <li>Mockup base pattern merged into Patternslib</li>
+            <li>mockup-core finally removed from Mockup.</li>
+        </ul>
     </div>
 
     <div class="step" data-x="3000" data-y="0" data-scale="0.5">
@@ -410,22 +415,23 @@
     </div>
 
     <div class="step" data-x="3000" data-y="1000" data-scale="0.3">
-        <h4>Issues remain</h4>
+        <h3>Some issues remain</h3>
         <ul class="list">
-            <li>Parser couldn't be merged.</li>
-            <li>Different naming conventions</li>
-            <li>Duplicate patterns and name-clashes</li>
-            <li>Different conventions</li>
-            <li>Different approach, developer-centric versus designer-centric</li>
+            <li class="list-heading">Parser couldn't be merged.</li>
+            <li class="list-heading">Different naming conventions.</li>
+            <li class="no-bullet"><em>config-name</em> versus <em>configName</em></li>
+            <li class="list-heading">Duplicate patterns cause name-clashes</li>
+            <li class="list-heading">Different approach</li>
+            <li class="no-bullet">Developer-centric versus designer-centric</li>
         </ul>
     </div>
 
     <div class="step" data-x="3000" data-y="2000">
-        <h4>The Mockup project is now simply a specific collection of Patternslib patterns.</h4>
+        <h3>The Mockup project is now simply a specific collection of Patternslib patterns.</h3>
     </div>
 
     <div class="step" data-x="3000" data-y="3000">
-        <h4>Goals</h4>
+        <h4>Goals achieved and what's still to do</h4>
         <ul class="smaller">
             <li style="color:#cca43b">[*] Deprecate mockup-core and merge into Patternslib</li>
             <li style="color:#cca43b">[*] Get Mockup to rely on Patternslib instead</li>
@@ -433,8 +439,8 @@
             <li>[&nbsp;&nbsp;] Remove unnecessary, duplicate patterns</li>
             <li>[&nbsp;&nbsp;] Update Mockup patterns to use the Patternslib parser</li>
             <li>[&nbsp;&nbsp;] Move generic patterns out of Mockup</li>
-            <li>[&nbsp;&nbsp;] Start using Patternslib patterns in Plone</li>
-            <li>[&nbsp;&nbsp;] Update the documentation.</li>
+            <li>[&nbsp;&nbsp;] Easily expose and start using Patternslib patterns in Plone</li>
+            <li>[&nbsp;&nbsp;] Update documentation</li>
         </ul>
     </div>
 
@@ -482,8 +488,8 @@
             <li class="list-heading">Sunk costs</li>
             <li class="list-heading">Cost of merging</li>
             <li class="list-heading">Opportunity cost</li>
-            <li class="list-heading">Resource dilution</li>
-            <li class="list-heading">Confusion</li>
+            <li class="list-heading">Developer/Resource dilution</li>
+            <li class="list-heading">FUD and Confusion</li>
         </ul>
     </div>
 
@@ -495,7 +501,7 @@
         <h3>What alternatives where there to forking?</h3>
         <ul class="list">
         <li>Get your work merged upstream</li>
-        <li>Do your own thing but maintain compatibility</li>
+        <li>Add your own features but maintain compatibility</li>
         </ul>
     </div>
 
